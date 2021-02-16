@@ -1,0 +1,17 @@
+galaxy_info:
+  author: jorp
+  description: configure default Fedora 33 with GNOME to my liking
+  license: license (GPL-2.0-or-later)
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: Fedora
+      versions:
+        - 33
+
+  galaxy_tags:
+    - linux
+    - fedora
+    - configure
+    - gnome
+    - jorp
