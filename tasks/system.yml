@@ -9,7 +9,7 @@
     state: absent
     path: "/home/{{ whoami.stdout }}/{{ item }}"
   loop:
-    -  "Public"
+    - "Public"
     - "Templates"
 - name: gather service facts
   service_facts:
@@ -29,10 +29,9 @@
         state: absent
 
     - name: replace line in NetworkManager.conf
-      replace:
+      lineinfile:
         path: /etc/NetworkManager/NetworkManager.conf
-        regexp: '#dns=default'
-        replace: 'dns=default'
+        line: 'dns=default'
 
     - name: restart network manager
       systemd:
