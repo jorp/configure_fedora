@@ -40,4 +40,5 @@ An optional section for the role authors to include contact information, or a we
 TODO
 ----
 
-Fix `become` in `gnome.yml`
+- ~~Fix `become` in `gnome.yml`~~
+- add tags
