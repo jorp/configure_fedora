@@ -12,6 +12,7 @@ install_packages:
   - fping
   - fzf
   - git
+  - ghostwriter
   - gnome-extensions-app
   - gnome-tweaks
   - golang
