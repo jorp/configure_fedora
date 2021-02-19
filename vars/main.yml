@@ -1,6 +1,7 @@
 ---
 install_packages:
   - arp-scan
+  - awscli
   - baobab
   - bash-completion
   - borgbackup

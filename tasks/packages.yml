@@ -5,17 +5,44 @@
   become: false
   register: whoami
 
-- name: get dotfiles
+- name: set up dotfiles
   become: no
-  git:
-    repo: 'https://github.com/jorp/dotfiles.git'
-    dest: "/home/{{ whoami.stdout }}/dotfiles"
+  block:
+    - name: get dotfiles
+      git:
+        repo: 'https://github.com/jorp/dotfiles.git'
+        dest: "/home/{{ whoami.stdout }}/dotfiles"
 
-- name: install vundle
-  become: no
-  git:
-    repo: 'https://github.com/VundleVim/Vundle.vim.git'
-    dest: "/home/{{ whoami.stdout }}/.vim/bundle/Vundle.vim"
+    - name: create vim-plug dirs
+      file:
+        path: "/home/{{ whoami.stdout }}/.vim/autoload"
+        state: directory
+        recurse: yes
+
+    - name: install vim-plug
+      get_url:
+        url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        dest: "/home/{{ whoami.stdout }}/.vim/autoload/plug.vim"
+
+    - name: install vim-plug plugins
+      command:
+        cmd: "vim +PlugInstall +qall"
+        stdin: "\n"
+
+    - name: remove .bashrc
+      file:
+        path: "/home/{{ whoami.stdout }}/.bashrc"
+        state: absent
+
+    - name: set up with stow
+      command:
+        chdir: "/home/{{ whoami.stdout }}/dotfiles"
+        cmd: "stow {{ item }}"
+      loop:
+        - bash
+        - inputrc
+        - vim
+
 - name: add rpmfusion repos 
   dnf:
     name: "{{ item }}"
