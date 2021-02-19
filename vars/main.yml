@@ -87,3 +87,4 @@ flatpaks:
   - com.discordapp.Discord
   - com.spotify.Client
   - com.mattermost.Desktop
+  - io.freetubeapp.FreeTube
