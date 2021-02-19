@@ -24,10 +24,6 @@
         url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
         dest: "/home/{{ whoami.stdout }}/.vim/autoload/plug.vim"
 
-    - name: install vim-plug plugins
-      command:
-        cmd: "vim +PlugInstall +qall"
-        stdin: "\n"
 
     - name: remove .bashrc
       file:
@@ -42,6 +38,11 @@
         - bash
         - inputrc
         - vim
+
+    - name: install vim-plug plugins
+      command:
+        cmd: "vim +PlugInstall +qall"
+        stdin: "\n"
 
 - name: add rpmfusion repos 
   dnf:
@@ -97,27 +98,6 @@
         state: absent
   when: "'mullvad-vpn' not in ansible_facts.packages"
 
-- name: set up stow
-  become: no
-  block:
-    - name: remove .bashrc
-      file:
-        path: "/home/{{ whoami.stdout }}/.bashrc"
-        state: absent
-
-    - name: set up with stow
-      command:
-        chdir: "/home/{{ whoami.stdout }}/dotfiles"
-        cmd: "stow {{ item }}"
-      loop:
-        - bash
-        - inputrc
-        - vim
-
-    - name: install vundle plugins
-      command:
-        cmd: "vim +PluginInstall +qall"
-        stdin: "\n"
 
 - name: setup flatpak
   block:
