@@ -1,0 +1,75 @@
+- name: allow bold
+  dconf:
+    key: "{{ profile_key }}/allow-bold"
+    value: "true"
+
+- name: background color
+  dconf:
+    key: "{{ profile_key }}/background-color"
+    value: "'#282828282828'"
+
+- name: bold color
+  dconf:
+    key: "{{ profile_key }}/bold-color"
+    value: "'#ebebdbdbb2b2'"
+
+- name: bold same as fg
+  dconf:
+    key: "{{ profile_key }}/bold-color-same-as-fg"
+    value: "true"
+
+- name: cursor background color
+  dconf:
+    key: "{{ profile_key }}/cursor-background-color"
+    value: "'#ebebdbdbb2b2'"
+
+- name: cursor colors set
+  dconf:
+    key: "{{ profile_key }}/cursor-colors-set"
+    value: "true"
+
+- name: cursor foreground color
+  dconf:
+    key: "{{ profile_key }}/cursor-foreground-color"
+    value: "'#282828282828'"
+
+- name: font
+  dconf:
+    key: "{{ profile_key }}/font"
+    value: "'Monospace 11'"
+
+- name: foreground color
+  dconf:
+    key: "{{ profile_key }}/foreground-color"
+    value: "'#ebebdbdbb2b2'"
+
+- name: set color palette
+  dconf:
+    key: "{{ profile_key }}/palette"
+    value: "['#282828282828', '#cccc24241d1d', '#989897971a1a', '#d7d799992121', '#454585858888', '#b1b162628686', '#68689d9d6a6a', '#a8a899998484', '#929283837474', '#fbfb49493434', '#b8b8bbbb2626', '#fafabdbd2f2f', '#8383a5a59898', '#d3d386869b9b', '#8e8ec0c07c7c', '#ebebdbdbb2b2']"
+
+- name: use system font
+  dconf:
+    key: "{{ profile_key }}/use-system-font"
+    value: "false"
+
+- name: use theme background
+  dconf:
+    key: "{{ profile_key }}/use-theme-background"
+    value: "false"
+
+- name: use theme colors
+  dconf:
+    key: "{{ profile_key }}/use-theme-colors"
+    value: "false"
+
+- name: use theme transparency
+  dconf:
+    key: "{{ profile_key }}/use-theme-transparency"
+    value: "false"
+
+
+- name: set profile name
+  dconf:
+    key: "{{ profile_key }}/visible-name"
+    value: "'Gruvbox Dark'"

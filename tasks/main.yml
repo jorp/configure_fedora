@@ -7,3 +7,7 @@
     apply:
       become: no
 
+- include_tasks: gnome-terminal.yml
+  args:
+    apply:
+      become: no
