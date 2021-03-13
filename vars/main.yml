@@ -19,6 +19,7 @@ install_packages:
   - htop
   - keepassxc
   - ImageMagick
+  - jq
   - lm_sensors
   - mousepad
   - mplayer
