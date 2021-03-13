@@ -55,6 +55,7 @@ install_packages:
   - wireshark
   - xclip
   - youtube-dl
+  - Zim
 
 remove_packages:
   - PackageKit
