@@ -5,45 +5,6 @@
   become: false
   register: whoami
 
-- name: set up dotfiles
-  become: no
-  block:
-    - name: get dotfiles
-      git:
-        repo: 'https://github.com/jorp/dotfiles.git'
-        dest: "/home/{{ whoami.stdout }}/dotfiles"
-
-    - name: create vim-plug dirs
-      file:
-        path: "/home/{{ whoami.stdout }}/.vim/autoload"
-        state: directory
-        recurse: yes
-
-    - name: install vim-plug
-      get_url:
-        url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-        dest: "/home/{{ whoami.stdout }}/.vim/autoload/plug.vim"
-
-
-    - name: remove .bashrc
-      file:
-        path: "/home/{{ whoami.stdout }}/.bashrc"
-        state: absent
-
-    - name: set up with stow
-      command:
-        chdir: "/home/{{ whoami.stdout }}/dotfiles"
-        cmd: "stow {{ item }}"
-      loop:
-        - bash
-        - inputrc
-        - vim
-
-    - name: install vim-plug plugins
-      command:
-        cmd: "vim +PlugInstall +qall"
-        stdin: "\n"
-
 - name: add rpmfusion repos 
   dnf:
     name: "{{ item }}"
@@ -75,6 +36,44 @@
   loop: "{{ install_packages }}"
   when: install
 
+- name: set up dotfiles
+  become: no
+  block:
+    - name: get dotfiles
+      git:
+        repo: 'https://github.com/jorp/dotfiles.git'
+        dest: "/home/{{ whoami.stdout }}/dotfiles"
+
+    - name: create vim-plug dirs
+      file:
+        path: "/home/{{ whoami.stdout }}/.vim/autoload"
+        state: directory
+        recurse: yes
+
+    - name: install vim-plug
+      get_url:
+        url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        dest: "/home/{{ whoami.stdout }}/.vim/autoload/plug.vim"
+
+    - name: remove .bashrc
+      file:
+        path: "/home/{{ whoami.stdout }}/.bashrc"
+        state: absent
+
+    - name: set up with stow
+      command:
+        chdir: "/home/{{ whoami.stdout }}/dotfiles"
+        cmd: "stow {{ item }}"
+      loop:
+        - bash
+        - inputrc
+        - vim
+
+    - name: install vim-plug plugins
+      command:
+        cmd: "vim +PlugInstall +qall"
+        stdin: "\n"
+
 - name: gather package facts
   package_facts:
     manager: auto
@@ -97,7 +96,6 @@
         path: reg.dest
         state: absent
   when: "'mullvad-vpn' not in ansible_facts.packages"
-
 
 - name: setup flatpak
   block:
