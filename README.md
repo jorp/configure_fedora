@@ -23,3 +23,5 @@ TODO
 
 - ~~Fix `become` in `gnome.yml`~~
 - add tags
+- remove data and add empty defaults for modularity
+- more error handling
