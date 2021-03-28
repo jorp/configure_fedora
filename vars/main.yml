@@ -33,6 +33,7 @@ install_packages:
   - obs-studio
   - p7zip
   - pcmanfm
+  - piper
   - python3-devel
   - python3-streamlink
   - python3-psutil
