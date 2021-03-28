@@ -1,0 +1,17 @@
+- name: check golang version
+  command: go version
+  register: gov
+  changed_when: no
+  ignore_errors: yes
+
+- name: set GOPATH fact
+  set_fact:
+    go_path: "{{ lookup('env', 'GOPATH') | default(ansible_env.HOME+'/go', true) }}"
+  when: not gov.failed
+
+- name: install go packages
+  shell: "go get -u {{ item }}"
+  environment:
+    GOPATH: "{{ go_path }}"
+  when: not gov.failed
+  loop: "{{ go_packages }}"
