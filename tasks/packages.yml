@@ -78,6 +78,11 @@
         cmd: "vim +PlugInstall +qall"
         stdin: "\n"
 
+    - name: get community cheatsheets
+      git:
+        repo: 'https://github.com/cheat/cheatsheets.git'
+        dest: "/home/{{ whoami.stdout }}/.config/cheatsheets/community"
+
 - name: gather package facts
   package_facts:
     manager: auto
