@@ -2,6 +2,10 @@
 # tasks file for configure-fedora
 - include_tasks: system.yml
 - include_tasks: packages.yml
+- include_tasks: go.yml
+  args:
+    apply:
+      become: no
 - include_tasks: gnome.yml
   args:
     apply:
