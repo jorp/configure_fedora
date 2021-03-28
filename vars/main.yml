@@ -90,6 +90,7 @@ remove_packages:
 flatpaks:
   - com.discordapp.Discord
   - com.spotify.Client
+  - com.sweethome3d.Sweethome3d
   - com.mattermost.Desktop
   - io.freetubeapp.FreeTube
   - io.github.wereturtle.ghostwriter
