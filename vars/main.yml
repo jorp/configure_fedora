@@ -8,8 +8,10 @@ install_packages:
   - blender
   - cabextract
   - chrome-gnome-shell
+  - feh
   - ffmpeg
   - fping
+  - fwupd
   - fzf
   - git
   - ghostwriter
