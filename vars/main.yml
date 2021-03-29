@@ -42,9 +42,11 @@ install_packages:
   - qbittorrent
   - rkhunter
   - rsync
+  - scrot
   - sshfs
   - stow
   - syncthing
+  - tesseract
   - texlive
   - texlive-preprint
   - texstudio
