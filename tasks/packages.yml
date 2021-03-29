@@ -68,7 +68,6 @@
         cmd: "stow {{ item }}"
       loop:
         - bash
-        - bash_completion
         - cheat
         - inputrc
         - vim
