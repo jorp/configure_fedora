@@ -83,6 +83,11 @@
         repo: 'https://github.com/cheat/cheatsheets.git'
         dest: "/home/{{ whoami.stdout }}/.config/cheatsheets/community"
 
+    - name: clone scripts into bin
+      git:
+        repo: 'https://github.com/jorp/scripts.git'
+        dest: "/home/{{ whoami.stdout }}/bin"
+
 - name: gather package facts
   package_facts:
     manager: auto
