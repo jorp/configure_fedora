@@ -15,7 +15,6 @@ install_packages:
   - fwupd
   - fzf
   - git
-  - ghostwriter
   - gnome-extensions-app
   - gnome-tweaks
   - golang
