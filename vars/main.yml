@@ -15,6 +15,7 @@ install_packages:
   - fwupd
   - fzf
   - git
+  - ghostwriter
   - gnome-extensions-app
   - gnome-tweaks
   - golang
@@ -99,7 +100,6 @@ flatpaks:
   - com.sweethome3d.Sweethome3d
   - com.mattermost.Desktop
   - io.freetubeapp.FreeTube
-  - io.github.wereturtle.ghostwriter
   - org.gnome.GTG
 
 go_packages:
