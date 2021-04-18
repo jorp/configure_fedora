@@ -21,7 +21,7 @@ Example Playbook
 TODO
 ----
 
-- ~~Fix `become` in `gnome.yml`~~
 - add tags
 - remove data and add empty defaults for modularity
+    - everything is a bit messy and just dumped in var/main.yml for now
 - more error handling

@@ -27,6 +27,7 @@ install_packages:
   - mousepad
   - mplayer
   - mpv
+  - mpv-mpris
   - nautilus-dropbox
   - neofetch
   - nethogs
