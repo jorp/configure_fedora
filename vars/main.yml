@@ -105,6 +105,6 @@ flatpaks:
 
 go_packages:
   - "github.com/cheat/cheat/cmd/cheat"
-  - "github.com/xxxserxxx/gotop/cmd/gotop"
+  - "github.com/xxxserxxx/gotop/v4/cmd/gotop"
 
 profile_key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9"
