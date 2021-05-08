@@ -15,3 +15,4 @@
     GOPATH: "{{ go_path }}"
   when: not gov.failed
   loop: "{{ go_packages }}"
+  ignore_errors: yes
