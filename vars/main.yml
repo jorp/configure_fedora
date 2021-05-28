@@ -17,6 +17,7 @@ install_packages:
   - git
   - ghostwriter
   - gnome-extensions-app
+  - gnome-icon-theme
   - gnome-tweaks
   - golang
   - htop
